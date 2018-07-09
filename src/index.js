@@ -9,7 +9,6 @@ import "./styles/styles.css";
 
 const store = createStore(reducer);
 
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
