@@ -1,6 +1,7 @@
 import USERS from "../data/users";
+import pageTypes from "../data/page-types";
 
-export const PAGE = "PAGE";
+export const LOAD_PAGE = "LOAD_PAGE";
 export const REQUEST_USERS = "REQUEST_USERS";
 export const RECEIVE_USERS = "RECEIVE_USERS";
 
@@ -13,7 +14,15 @@ function requestUsers() {
 function receiveUsers(users) {
   return {
     type: RECEIVE_USERS,
-    users: users
+    users
+  };
+}
+
+export function loadPage(page) {
+  return {
+    type: LOAD_PAGE,
+    isLoading: page === pageTypes.users,
+    page
   };
 }
 

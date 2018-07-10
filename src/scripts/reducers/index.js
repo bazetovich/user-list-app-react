@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
-import { REQUEST_USERS, RECEIVE_USERS } from "../actions";
+import { REQUEST_USERS, RECEIVE_USERS, LOAD_PAGE } from "../actions";
+import pageTypes from "../data/page-types";
 
 function users(
   state = {
@@ -23,11 +24,18 @@ function users(
   }
 }
 
-function page(state, action) {
+function loadPage(
+  state = {
+    page: pageTypes.home,
+    isLoading: false
+  },
+  action
+) {
   switch (action.type) {
-    case REQUEST_USERS:
+    case LOAD_PAGE:
       return Object.assign({}, state, {
-        page: action.page
+        page: action.page,
+        isLoading: action.isLoading
       });
     default:
       return state;
@@ -35,5 +43,6 @@ function page(state, action) {
 }
 
 export default combineReducers({
-  users
+  users,
+  loadPage
 });
