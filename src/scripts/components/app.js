@@ -1,6 +1,12 @@
 import React from "react";
-import Menu from "./menu";
+import Menu from "../containers/menu";
+import Pager from "../containers/pager";
 
-const App = () => <Menu />;
+const App = () => (
+  <div className="app">
+    <Menu />
+    <Pager />
+  </div>
+);
 
 export default App;

@@ -1,16 +1,8 @@
 import USERS from "../data/users";
 
+export const PAGE = "PAGE";
 export const REQUEST_USERS = "REQUEST_USERS";
 export const RECEIVE_USERS = "RECEIVE_USERS";
-
-export const callUserPopup = id => ({
-  type: "CALL_USER_POPUP",
-  id
-});
-
-export const closeUserPopup = () => ({
-  type: "CLOSE_USER_POPUP"
-});
 
 function requestUsers() {
   return {

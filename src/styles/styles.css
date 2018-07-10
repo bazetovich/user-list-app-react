@@ -1,4 +1,4 @@
-.App {
-  font-family: sans-serif;
-  text-align: center;
+.app {
+  flex-grow: 1;
+  background-color: #fff;
 }

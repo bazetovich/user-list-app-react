@@ -23,6 +23,17 @@ function users(
   }
 }
 
+function page(state, action) {
+  switch (action.type) {
+    case REQUEST_USERS:
+      return Object.assign({}, state, {
+        page: action.page
+      });
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   users
 });
