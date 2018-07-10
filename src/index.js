@@ -8,6 +8,8 @@ import reducer from "./scripts/reducers";
 
 import "./styles/styles.css";
 
+console.log(reducer);
+
 const store = createStore(reducer, undefined, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(

@@ -24,25 +24,16 @@ function users(
   }
 }
 
-function loadPage(
-  state = {
-    page: pageTypes.home,
-    isLoading: false
-  },
-  action
-) {
+function page(state = pageTypes.home, action) {
   switch (action.type) {
     case LOAD_PAGE:
-      return Object.assign({}, state, {
-        page: action.page,
-        isLoading: action.isLoading
-      });
+      return action.page;
     default:
       return state;
   }
 }
 
 export default combineReducers({
-  users,
-  loadPage
+  ...users,
+  page
 });

@@ -6,9 +6,9 @@ import pageTypes from "../data/page-types";
 const Pager = ({ page }) => {
   if (page === pageTypes.home) {
     return <Home />;
-  } else if (page === pageTypes.users) {
-    return <Users />;
   }
+
+  return <Users />;
 };
 
 export default Pager;
