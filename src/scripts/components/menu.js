@@ -3,6 +3,8 @@ import { withStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
+import Icon from "@material-ui/core/Icon";
+
 import Home from "./home";
 
 const styles = theme => ({
@@ -12,7 +14,7 @@ const styles = theme => ({
   }
 });
 
-class Menu extends React.Component {
+class App extends React.Component {
   state = {
     value: 0
   };
@@ -29,8 +31,8 @@ class Menu extends React.Component {
       <div className={classes.root}>
         <AppBar position="static">
           <Tabs value={value} onChange={this.handleChange}>
-            <Tab label="Home" />
-            <Tab label="Users" />
+            <Tab label="Home" icon={<Icon>home</Icon>} />
+            <Tab label="Users" icon={<Icon>group</Icon>} />
           </Tabs>
         </AppBar>
         {value === 0 && <Home />}
@@ -40,4 +42,4 @@ class Menu extends React.Component {
   }
 }
 
-export default withStyles(styles)(Menu);
+export default withStyles(styles)(App);

@@ -4,7 +4,8 @@ import Typography from "@material-ui/core/Typography";
 function Home() {
   return (
     <Typography component="div" style={{ padding: 8 * 3 }}>
-      Welcome to test task! To see and edit users click on <b>USERS</b> button
+      <h2>Welcome to test task!</h2> To see and edit users click on <b>USERS</b>{" "}
+      button at menu above
     </Typography>
   );
 }
