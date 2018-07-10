@@ -1,5 +1,6 @@
 import React from "react";
+import Menu from "./menu";
 
-const App = () => <div>123</div>;
+const App = () => <Menu />;
 
 export default App;
