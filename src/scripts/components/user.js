@@ -11,7 +11,7 @@ const User = ({ data, onClickHandler }) => {
           {data.name}
         </Typography>
         <Typography component="p">{data.email}</Typography>
-        <Typography component="p">{data.adress.city}</Typography>
+        <Typography component="p">{data.address.city}</Typography>
         <Typography component="p">{data.phone}</Typography>
         <Typography component="p">{data.website}</Typography>
         <Typography component="p">{data.company.name}</Typography>
