@@ -3,11 +3,13 @@ import Menu from "../components/menu";
 import { loadPage } from "../actions";
 
 const mapStateToProps = state => ({
-  page: state.page
+  page: state.page.id
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: page => dispatch(loadPage(page))
+  onChange: id => {
+    dispatch(loadPage(id));
+  }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Menu);

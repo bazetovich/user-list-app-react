@@ -1,39 +1,33 @@
 import { combineReducers } from "redux";
-import { REQUEST_USERS, RECEIVE_USERS, LOAD_PAGE } from "../actions";
+import { OPEN_PAGE, TOGGLE_LOADING, SET_DATA } from "../actions";
 import pageTypes from "../data/page-types";
 
-function users(
+function page(
   state = {
+    id: pageTypes.home,
     isLoading: false,
-    users: []
+    data: {}
   },
   action
 ) {
   switch (action.type) {
-    case REQUEST_USERS:
+    case OPEN_PAGE:
       return Object.assign({}, state, {
-        isLoading: true
+        id: action.id
       });
-    case RECEIVE_USERS:
+    case TOGGLE_LOADING:
       return Object.assign({}, state, {
-        isLoading: false,
-        users: action.users
+        isLoading: action.isLoading
       });
-    default:
-      return state;
-  }
-}
-
-function page(state = pageTypes.home, action) {
-  switch (action.type) {
-    case LOAD_PAGE:
-      return action.page;
+    case SET_DATA:
+      return Object.assign({}, state, {
+        data: action.data
+      });
     default:
       return state;
   }
 }
 
 export default combineReducers({
-  ...users,
   page
 });

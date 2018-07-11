@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import Pager from "../components/pager";
 
 const mapStateToProps = state => ({
-  page: state.page
+  id: state.page.id
 });
 
 export default connect(mapStateToProps)(Pager);

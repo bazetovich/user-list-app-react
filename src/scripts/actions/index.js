@@ -1,34 +1,42 @@
-import USERS from "../data/users";
 import pageTypes from "../data/page-types";
+import fetch from "../utils/fetch";
 
-export const LOAD_PAGE = "LOAD_PAGE";
-export const REQUEST_USERS = "REQUEST_USERS";
-export const RECEIVE_USERS = "RECEIVE_USERS";
+export const OPEN_PAGE = "OPEN_PAGE";
+export const TOGGLE_LOADING = "TOGGLE_LOADING";
+export const SET_DATA = "SET_DATA";
 
-function requestUsers() {
+function toggleLoading(isLoading) {
   return {
-    type: REQUEST_USERS
+    type: TOGGLE_LOADING,
+    isLoading
   };
 }
 
-function receiveUsers(users) {
+function setData(data) {
   return {
-    type: RECEIVE_USERS,
-    users
+    type: SET_DATA,
+    data
   };
 }
 
-export function loadPage(page) {
+function openPage(id) {
   return {
-    type: LOAD_PAGE,
-    isLoading: page === pageTypes.users,
-    page
+    type: OPEN_PAGE,
+    id
   };
 }
 
-export function fetchUsers() {
+export function loadPage(id) {
   return (dispatch, getState) => {
-    dispatch(requestUsers());
-    setTimeout(() => dispatch(receiveUsers(JSON.parse(USERS))), 1000);
+    if (id === pageTypes.home) {
+      dispatch(openPage(id));
+    } else if (id === pageTypes.users) {
+      dispatch(toggleLoading(true));
+      dispatch(openPage(id));
+      fetch().then(data => {
+        dispatch(setData(data));
+        dispatch(toggleLoading(false));
+      });
+    }
   };
 }
