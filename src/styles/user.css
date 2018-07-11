@@ -1,3 +1,11 @@
+.user-info-wrap {
+  display: flex;
+  justify-content: center;
+}
+
 .user-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   text-align: center;
 }

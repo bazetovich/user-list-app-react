@@ -7,16 +7,26 @@ import "../../styles/user.css";
 
 const User = ({ data, onClickHandler }) => {
   return (
-    <Grid item xs={6} sm={4}>
+    <Grid className="user-info-wrap" item xs={6} sm={4}>
       <Paper className="user-info">
-        <Typography variant="headline" component="h3">
+        <Typography noWrap variant="headline" component="h3">
           {data.name}
         </Typography>
-        <Typography component="p">{data.email}</Typography>
-        <Typography component="p">{data.address.city}</Typography>
-        <Typography component="p">{data.phone}</Typography>
-        <Typography component="p">{data.website}</Typography>
-        <Typography component="p">{data.company.name}</Typography>
+        <Typography noWrap component="p">
+          {data.email}
+        </Typography>
+        <Typography noWrap component="p">
+          {data.address.city}
+        </Typography>
+        <Typography noWrap component="p">
+          {data.phone}
+        </Typography>
+        <Typography noWrap component="p">
+          {data.website}
+        </Typography>
+        <Typography noWrap component="p">
+          {data.company.name}
+        </Typography>
       </Paper>
     </Grid>
   );
