@@ -16,11 +16,15 @@ class Users extends React.Component {
     const { isLoading, users } = this.props;
 
     if (isLoading) {
-      return <Loader />;
+      return (
+        <div style={{ padding: 50, textAlign: "center" }}>
+          <Loader />
+        </div>
+      );
     }
 
     return (
-      <Grid container spacing={24}>
+      <Grid container style={{ padding: 24 }} spacing={24}>
         {users.map((user, i) => (
           <User key={i} data={user} onClick={this.onClickHandler} />
         ))}
