@@ -84,7 +84,7 @@ const UserPopup = ({
   </Dialog>
 );
 
-UserPopup.PropTypes = {
+UserPopup.propTypes = {
   active: PropTypes.bool.isRequired,
   data: PropTypes.object.isRequired,
   handleClose: PropTypes.func.isRequired,

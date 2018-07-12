@@ -62,7 +62,7 @@ const User = ({ classes, user, onClickHandler }) => {
   );
 };
 
-User.PropTypes = {
+User.propTypes = {
   classes: PropTypes.object.isRequired,
   user: PropTypes.object.isRequired,
   onClickHandler: PropTypes.func.isRequired

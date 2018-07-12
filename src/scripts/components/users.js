@@ -26,7 +26,7 @@ const Users = ({ isLoading, users, onClickHandler }) => {
   );
 };
 
-Users.PropTypes = {
+Users.propTypes = {
   isLoading: PropTypes.bool.isRequired,
   users: PropTypes.array.isRequired,
   onClickHandler: PropTypes.func.isRequired
