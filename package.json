@@ -1,7 +1,7 @@
 {
   "name": "user-list-app-react",
   "version": "1.0.0",
-  "description": "user list",
+  "description": "test task",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
