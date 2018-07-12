@@ -1,14 +1,22 @@
 import { connect } from "react-redux";
-import { loadPage } from "../actions";
+import { updateUser, toggleUserPopup, userPopupEditData } from "../actions";
 import UserPopup from "../components/user-popup";
 
 const mapStateToProps = state => ({
-  id: state.page.id
+  active: state.userPopup.active,
+  data: state.userPopup.data
 });
 
 const mapDispatchToProps = dispatch => ({
-  onChange: id => {
-    dispatch(loadPage(id));
+  handleChange: name => event => {
+    dispatch(userPopupEditData(name, event.target.value));
+  },
+  handleClose: () => {
+    dispatch(toggleUserPopup(false));
+  },
+  handleSubmit: data => {
+    dispatch(updateUser(data.id, data));
+    dispatch(toggleUserPopup(false));
   }
 });
 

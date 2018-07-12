@@ -37,10 +37,18 @@ export function toggleUserPopup(flag) {
   };
 }
 
-export function UserPopupSetData(data) {
+export function userPopupSetData(data) {
   return {
     type: USER_POPUP_SET_DATA,
     data
+  };
+}
+
+export function userPopupEditData(name, value) {
+  return {
+    type: USER_POPUP_EDIT_DATA,
+    name,
+    value
   };
 }
 

@@ -6,7 +6,13 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-const UserPopup = ({ active, data, handleClose, handleSubmit }) => (
+const UserPopup = ({
+  active,
+  data,
+  handleClose,
+  handleChange,
+  handleSubmit
+}) => (
   <Dialog open={active} aria-labelledby="form-dialog-title">
     <DialogTitle id="form-dialog-title">Edit</DialogTitle>
     <DialogContent>
@@ -14,8 +20,10 @@ const UserPopup = ({ active, data, handleClose, handleSubmit }) => (
         autoFocus
         margin="dense"
         id="name"
-        label="Email Address"
-        type="email"
+        value={data.name}
+        onChange={handleChange("name")}
+        label="Name"
+        type="text"
         fullWidth
       />
     </DialogContent>

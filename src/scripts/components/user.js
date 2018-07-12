@@ -8,7 +8,7 @@ import "../../styles/user.css";
 const User = ({ user, onClickHandler }) => {
   return (
     <Grid className="user-info-wrap" item xs={6} sm={4}>
-      <Paper className="user-info" onClick={() => onClickHandler(user)}>
+      <Paper className="user-info" onDoubleClick={() => onClickHandler(user)}>
         <Typography noWrap variant="headline" component="h3">
           {user.getProp("name")}
         </Typography>

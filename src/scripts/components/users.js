@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Loader from "@material-ui/core/CircularProgress";
 import User from "./user";
-import UserPopup from "./user-popup";
+import UserPopup from "../containers/user-popup";
 
 const Users = ({ isLoading, users, onClickHandler }) => {
   if (isLoading) {
