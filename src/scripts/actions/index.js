@@ -3,7 +3,11 @@ import fetch from "../utils/fetch";
 
 export const OPEN_PAGE = "OPEN_PAGE";
 export const TOGGLE_LOADING = "TOGGLE_LOADING";
-export const SET_DATA = "SET_DATA";
+export const TOGGLE_USER_POPUP = "TOGGLE_USER_POPUP";
+export const USER_POPUP_SET_DATA = "USER_POPUP_SET_DATA";
+export const USER_POPUP_EDIT_DATA = "USER_POPUP_EDIT_DATA";
+export const SET_USERS = "SET_USERS";
+export const UPDATE_USER = "UPDATE_USER";
 
 function toggleLoading(isLoading) {
   return {
@@ -12,10 +16,10 @@ function toggleLoading(isLoading) {
   };
 }
 
-function setData(data) {
+function setUsers(users) {
   return {
-    type: SET_DATA,
-    data
+    type: SET_USERS,
+    users
   };
 }
 
@@ -23,6 +27,28 @@ function openPage(id) {
   return {
     type: OPEN_PAGE,
     id
+  };
+}
+
+export function toggleUserPopup(flag) {
+  return {
+    type: TOGGLE_USER_POPUP,
+    active: flag
+  };
+}
+
+export function UserPopupSetData(data) {
+  return {
+    type: USER_POPUP_SET_DATA,
+    data
+  };
+}
+
+export function updateUser(id, data) {
+  return {
+    type: UPDATE_USER,
+    id,
+    data
   };
 }
 
@@ -34,7 +60,7 @@ export function loadPage(id) {
       dispatch(toggleLoading(true));
       dispatch(openPage(id));
       fetch().then(data => {
-        dispatch(setData(data));
+        dispatch(setUsers(data.users));
         dispatch(toggleLoading(false));
       });
     }

@@ -5,27 +5,27 @@ import Typography from "@material-ui/core/Typography";
 
 import "../../styles/user.css";
 
-const User = ({ data, onClickHandler }) => {
+const User = ({ user, onClickHandler }) => {
   return (
     <Grid className="user-info-wrap" item xs={6} sm={4}>
-      <Paper className="user-info">
+      <Paper className="user-info" onClick={() => onClickHandler(user)}>
         <Typography noWrap variant="headline" component="h3">
-          {data.name}
+          {user.getProp("name")}
         </Typography>
         <Typography noWrap component="p">
-          {data.email}
+          {user.getProp("email")}
         </Typography>
         <Typography noWrap component="p">
-          {data.address.city}
+          {user.getProp("address.city")}
         </Typography>
         <Typography noWrap component="p">
-          {data.phone}
+          {user.getProp("phone")}
         </Typography>
         <Typography noWrap component="p">
-          {data.website}
+          {user.getProp("website")}
         </Typography>
         <Typography noWrap component="p">
-          {data.company.name}
+          {user.getProp("company.name")}
         </Typography>
       </Paper>
     </Grid>
