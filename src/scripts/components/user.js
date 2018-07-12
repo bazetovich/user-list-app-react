@@ -1,30 +1,60 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { withStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 
-import "../../styles/user.css";
+const styles = {
+  userWrap: {
+    display: "flex",
+    justifyContent: "center"
+  },
+  user: {
+    border: "2px solid",
+    cursor: "pointer",
+    display: "flex",
+    flexDirection: "column",
+    overflow: "hidden",
+    textAlign: "center"
+  },
+  headline: {
+    backgroundColor: "#aed8e8"
+  },
+  row: {
+    color: "#fff",
+    backgroundColor: "#0000fe"
+  }
+};
 
-const User = ({ user, onClickHandler }) => {
+const User = ({ classes, user, onClickHandler }) => {
   return (
-    <Grid className="user-info-wrap" item xs={6} sm={4}>
-      <Paper className="user-info" onDoubleClick={() => onClickHandler(user)}>
-        <Typography noWrap variant="headline" component="h3">
+    <Grid className={classes.userWrap} item xs={6} sm={4}>
+      <Paper
+        className={classes.user}
+        onDoubleClick={() => onClickHandler(user)}
+      >
+        <Typography
+          className={classes.headline}
+          noWrap
+          variant="headline"
+          component="h3"
+        >
           {user.getProp("name")}
         </Typography>
-        <Typography noWrap component="p">
+        <Typography className={classes.row} noWrap component="p">
           {user.getProp("email")}
         </Typography>
-        <Typography noWrap component="p">
+        <Typography className={classes.row} noWrap component="p">
           {user.getProp("address.city")}
         </Typography>
-        <Typography noWrap component="p">
+        <Typography className={classes.row} noWrap component="p">
           {user.getProp("phone")}
         </Typography>
-        <Typography noWrap component="p">
+        <Typography className={classes.row} noWrap component="p">
           {user.getProp("website")}
         </Typography>
-        <Typography noWrap component="p">
+        <Typography className={classes.row} noWrap component="p">
           {user.getProp("company.name")}
         </Typography>
       </Paper>
@@ -32,4 +62,10 @@ const User = ({ user, onClickHandler }) => {
   );
 };
 
-export default User;
+User.PropTypes = {
+  classes: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired,
+  onClickHandler: PropTypes.func.isRequired
+};
+
+export default withStyles(styles)(User);

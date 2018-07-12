@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Grid from "@material-ui/core/Grid";
 import Loader from "@material-ui/core/CircularProgress";
 import User from "./user";
@@ -8,7 +9,7 @@ const Users = ({ isLoading, users, onClickHandler }) => {
   if (isLoading) {
     return (
       <div style={{ padding: 50, textAlign: "center" }}>
-        <Loader />
+        <Loader style={{ color: "#0000fe" }} />
       </div>
     );
   }
@@ -23,6 +24,12 @@ const Users = ({ isLoading, users, onClickHandler }) => {
       <UserPopup />
     </div>
   );
+};
+
+Users.PropTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  users: PropTypes.array.isRequired,
+  onClickHandler: PropTypes.func.isRequired
 };
 
 export default Users;

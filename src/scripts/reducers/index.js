@@ -37,8 +37,14 @@ function users(state = [], action) {
       return action.users;
     case UPDATE_USER:
       return state.map(user => {
-        if (user.id === action.id) {
-          return Object.assign({}, user, action.data);
+        if (user.getProp("id") === action.id) {
+          user
+            .setProp("name", action.data.name)
+            .setProp("email", action.data.email)
+            .setProp("address.city", action.data.city)
+            .setProp("phone", action.data.phone)
+            .setProp("website", action.data.website)
+            .setProp("company.name", action.data.companyName);
         }
 
         return user;

@@ -33,6 +33,8 @@ class User {
         }
       });
     }
+
+    return this;
   }
 }
 

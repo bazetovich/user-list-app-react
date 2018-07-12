@@ -1,7 +1,7 @@
 import USERS from "../data/users";
 import User from "../data/models/user";
 
-const DELAY = 3000;
+const DELAY = 1000;
 
 const fetch = () => {
   return new Promise(resolve => {
