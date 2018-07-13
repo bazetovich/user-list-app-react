@@ -32,6 +32,7 @@ const User = ({ classes, user, onClickHandler }) => {
     <Grid className={classes.userWrap} item xs={6} sm={4}>
       <Paper
         className={classes.user}
+        onTouchStart={() => onClickHandler(user)}
         onDoubleClick={() => onClickHandler(user)}
       >
         <Typography
